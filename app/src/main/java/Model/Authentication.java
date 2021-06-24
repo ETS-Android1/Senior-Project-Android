@@ -1,6 +1,4 @@
-package com.example.seniorproject.Authentication;
-
-import com.example.seniorproject.User.User;
+package Model;
 
 public class Authentication {
     User user;

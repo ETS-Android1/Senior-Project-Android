@@ -13,7 +13,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style parent="Theme.MaterialComponents.DayNight.NoActionBar" name="Theme.MaterialComponents">
+    <style parent="Theme.MaterialComponents.Light.NoActionBar" name="Theme.MaterialComponents">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

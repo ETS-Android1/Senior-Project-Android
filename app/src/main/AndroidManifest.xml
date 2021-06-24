@@ -8,20 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity
-            android:name=".SignUpActivity"
-            android:theme="@style/Theme.MaterialComponents">
+            android:name=".Views.Activity.StartingActivity"
+            android:theme="@style/Theme.SeniorProject">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
