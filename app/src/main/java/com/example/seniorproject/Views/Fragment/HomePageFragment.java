@@ -5,6 +5,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -12,29 +14,33 @@ import androidx.fragment.app.Fragment;
 import com.example.seniorproject.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class SignUpFragment extends Fragment {
+
+public class HomePageFragment extends Fragment {
 
 
-    MaterialToolbar materialToolbar;
-    DrawerLayout drawerLayout;
+    private DrawerLayout drawerLayout;
+    private MaterialToolbar materialToolbar;
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         /** Inflate the Sign Up Fragment **/
-        View view = inflater.inflate(R.layout.fragment_signup, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_homepage, container, false);
+        drawerLayout= (DrawerLayout) view.findViewById(R.id.drawerLayout);
         materialToolbar = (MaterialToolbar) view.findViewById(R.id.topAppBar);
-        drawerLayout = (DrawerLayout) view.findViewById(R.id.signup_drawer_layout);
 
-        materialToolbar.setNavigationOnClickListener( e -> {
+        materialToolbar.setNavigationOnClickListener(e -> {
             drawerLayout.openDrawer(Gravity.LEFT);
         });
+
 
         return view;
     }

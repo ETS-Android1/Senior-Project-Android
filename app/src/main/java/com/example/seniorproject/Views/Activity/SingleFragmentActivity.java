@@ -1,4 +1,5 @@
 package com.example.seniorproject.Views.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -9,12 +10,14 @@ import androidx.fragment.app.FragmentManager;
 import com.example.seniorproject.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
-public abstract class SingleFragmentActivty extends FragmentActivity {
+public abstract class SingleFragmentActivity extends FragmentActivity {
 
 
     private MaterialToolbar materialToolbar;
     private DrawerLayout drawerLayout;
     protected abstract Fragment createFragment();
+    public static String SINGLE_FRAGMENT_ACTIVITY = "Single Fragment Activity";
+
 
 
 

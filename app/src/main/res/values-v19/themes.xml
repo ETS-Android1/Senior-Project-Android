@@ -14,4 +14,8 @@
         <!-- Status bar color. -->
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
 </resources>
