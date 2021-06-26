@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
 import com.example.seniorproject.R;
+import com.example.seniorproject.Views.Activity.LoginActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class StartingFragment extends Fragment {
@@ -39,6 +40,15 @@ public class StartingFragment extends Fragment {
         homePage = (ImageView) view.findViewById(R.id.homepage_imageview);
         signUpButton = (MaterialButton) view.findViewById(R.id.signup_button);
         logInButton = (MaterialButton) view.findViewById(R.id.login_button);
+
+        logInButton.setOnClickListener(e -> {
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new LoginFragment(), STARTING_FRAGMENT_TAG)
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         signUpButton.setOnClickListener(e -> {
             getActivity()
