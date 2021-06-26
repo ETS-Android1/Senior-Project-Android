@@ -16,23 +16,23 @@ public class Login {
         UUID.randomUUID();
     }
 
-    public UUID getmId(){
+    public UUID getId(){
         return mId;
     }
 
-    public String getmUsername(){
+    public String getUsername(){
         return mUsername;
     }
 
-    public String setmUsername(String username){    // user inputted info
+    public String setUsername(String username){    // user inputted info
         return mUsername = username;
     }
 
-    public String getmPassword(){
+    public String getPassword(){
         return mPassword;
     }
 
-    public String setmPassword(String password){    // user inputted info
+    public String setPassword(String password){    // user inputted info
         return mPassword = password;
     }
 
