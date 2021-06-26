@@ -12,6 +12,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.seniorproject.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 
 
@@ -41,6 +44,7 @@ public class HomePageFragment extends Fragment {
             drawerLayout.openDrawer(Gravity.LEFT);
         });
 
+        GoogleApiAvailability googleApiAvailability = new GoogleApiAvailability();
 
         return view;
     }
