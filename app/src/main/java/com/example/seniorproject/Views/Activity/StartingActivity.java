@@ -16,7 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-public class StartingActivity extends SingleFragmentActivity implements GoogleMap.OnMapClickListener {
+public class StartingActivity extends SingleFragmentActivity {
 
 
     @Override
@@ -30,8 +30,9 @@ public class StartingActivity extends SingleFragmentActivity implements GoogleMa
         return new StartingFragment();
     }
 
+
     @Override
-    public void onMapClick(LatLng latLng) {
+    public void onMapReady(GoogleMap googleMap) {
 
     }
 }

@@ -1,5 +1,6 @@
 package com.example.seniorproject.Views.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
 import com.example.seniorproject.R;
+import com.example.seniorproject.Views.Activity.HomePageActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class StartingFragment extends Fragment {
@@ -24,8 +26,6 @@ public class StartingFragment extends Fragment {
 
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +41,9 @@ public class StartingFragment extends Fragment {
         logInButton = (MaterialButton) view.findViewById(R.id.login_button);
 
         signUpButton.setOnClickListener(e -> {
-            getActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, new HomePageFragment(), STARTING_FRAGMENT_TAG)
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(getContext(), HomePageActivity.class);
+            intent.putExtra(STARTING_FRAGMENT_TAG, STARTING_FRAGMENT_TAG );
+            startActivity(intent);
         });
 
         return view;
