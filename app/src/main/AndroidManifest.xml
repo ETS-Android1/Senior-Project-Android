@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Views.Activity.HomePageActivity">
+        <activity android:name=".Views.Activity.HomePageActivity"
+            android:theme="@style/Theme.MaterialComponents">
 
         </activity>
 

@@ -37,18 +37,18 @@ public abstract class SingleFragmentActivity extends FragmentActivity implements
     private MaterialToolbar materialToolbar;
     private DrawerLayout drawerLayout;
     public static String SINGLE_FRAGMENT_ACTIVITY = "Single Fragment Activity";
-    private GoogleMap googleMap;
-    private PlacesClient placesClient;
-    private boolean locationPermissionsGranted;
-    private boolean lastKnowLocation;
-    private SupportMapFragment supportMapFragment;
-    private LocationRequest locationRequest;
-    private Location lastKnownLocation;
-    private Marker myMarker;
-    private FusedLocationProviderClient mFusedLocationClient;
-    private int PERMISSION_ID = 44;
-    private static final int DEFAULT_ZOOM = 15;
-    private final LatLng defaultLocation = new LatLng(-33.8523341, 151.2106085);
+//    private GoogleMap googleMap;
+//    private PlacesClient placesClient;
+//    private boolean locationPermissionsGranted;
+//    private boolean lastKnowLocation;
+//    private SupportMapFragment supportMapFragment;
+//    private LocationRequest locationRequest;
+//    private Location lastKnownLocation;
+//    private Marker myMarker;
+//    private FusedLocationProviderClient mFusedLocationClient;
+//    private int PERMISSION_ID = 44;
+//    private static final int DEFAULT_ZOOM = 15;
+//    private final LatLng defaultLocation = new LatLng(-33.8523341, 151.2106085);
 
 
 
@@ -63,12 +63,12 @@ public abstract class SingleFragmentActivity extends FragmentActivity implements
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment startingFragment = fragmentManager.findFragmentById(R.id.fragment_container);
 
-        //Construct a PlacesClient
-        Places.initialize(getApplicationContext(), getString(R.string.maps_api_key));
-        placesClient = Places.createClient(this);
-
-        // Construct a FusedLocationProviderClient
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+//        //Construct a PlacesClient
+//        Places.initialize(getApplicationContext(), getString(R.string.maps_api_key));
+//        placesClient = Places.createClient(this);
+//
+//        // Construct a FusedLocationProviderClient
+//        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         /** Check if Fragment is empty **/
         if (startingFragment == null) {
