@@ -82,6 +82,7 @@ public class LoginFragment extends Fragment {
         });
 
         mRegisterButton = (Button)v.findViewById(R.id.signup_button3);
+
         mLoginButton = (Button)v.findViewById(R.id.login_button2);
         mLoginButton.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -101,10 +102,21 @@ public class LoginFragment extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "Login successful!", Toast.LENGTH_SHORT).show();
 
+
+
+                        getActivity()
+                                .getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new HomePageFragment(), "TAG")
+                                .addToBackStack(null)
+                                .commit();
+
+                        /**
                         // Add code to go to the new activity. Homepage (logged in)
                         Intent intent = new Intent(getContext(), StartingActivity.class); //intent(source,activity)
                         // now that you have an intent, start the activity
                         startActivity(intent);
+                         **/
 
 
                     }
