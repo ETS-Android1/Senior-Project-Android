@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.example.seniorproject.R;
 import com.example.seniorproject.Views.Activity.HomePageActivity;
 import com.example.seniorproject.Views.Activity.LoginActivity;
+import com.example.seniorproject.Views.Activity.SignUpActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class StartingFragment extends Fragment {
@@ -45,15 +46,21 @@ public class StartingFragment extends Fragment {
             getActivity()
                     .getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, new LoginFragment(), "TAG")
+                    .replace(R.id.fragment_container, new LoginFragment(), LoginActivity.LOGIN_FRAGMENT_ACTIVITY)
                     .addToBackStack(null)
                     .commit();
         });
 
         signUpButton.setOnClickListener(e -> {
-            Intent intent = new Intent(getContext(), HomePageActivity.class);
-            intent.putExtra(STARTING_FRAGMENT_TAG, STARTING_FRAGMENT_TAG );
-            startActivity(intent);
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new SignUpFragment(), SignUpActivity.SIGN_UP_FRAGMENT_ACTIVITY)
+                    .addToBackStack(null)
+                    .commit();
+//            Intent intent = new Intent(getContext(), HomePageActivity.class);
+//            intent.putExtra(STARTING_FRAGMENT_TAG, STARTING_FRAGMENT_TAG );
+//            startActivity(intent);
         });
 
         return view;

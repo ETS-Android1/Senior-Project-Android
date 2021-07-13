@@ -30,9 +30,4 @@ public class StartingActivity extends SingleFragmentActivity {
         return new StartingFragment();
     }
 
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-    }
 }

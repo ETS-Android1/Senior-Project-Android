@@ -25,10 +25,10 @@ public class LoginFragment extends Fragment implements LoginActvityPresenter.Vie
     private EditText mUsernameField;
     private EditText mPasswordField;
     private Button mLoginButton;
-    private Button mRegisterButton;
-    private String exampleUsername = "Admin";
-    private String examplePassword = "password";
-    private boolean isValid = false;
+//    private Button mRegisterButton;
+//    private String exampleUsername = "Admin";
+//    private String examplePassword = "password";
+//    private boolean isValid = false;
     private LoginActvityPresenter loginActvityPresenter;
 
     @Override
@@ -81,7 +81,7 @@ public class LoginFragment extends Fragment implements LoginActvityPresenter.Vie
             }
         });
 
-        mRegisterButton = (Button) v.findViewById(R.id.signup_button3);
+//        mRegisterButton = (Button) v.findViewById(R.id.signup_button);
 
         mLoginButton = (Button) v.findViewById(R.id.login_button2);
         mLoginButton.setOnClickListener((new View.OnClickListener() {
