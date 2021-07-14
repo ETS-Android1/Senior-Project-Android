@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -34,13 +35,14 @@ import com.google.android.material.appbar.MaterialToolbar;
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
     public static String SINGLE_FRAGMENT_ACTIVITY = "Single Fragment Activity";
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singlefragment);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         Fragment startingFragment = fragmentManager.findFragmentById(R.id.fragment_container);
 
         /** Check if Fragment is empty **/
@@ -48,6 +50,10 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
             startingFragment = createFragment();
             fragmentManager.beginTransaction().add(R.id.fragment_container, startingFragment).commit();
         }
+    }
+
+    public void launchFragment(Fragment fragment){
+
     }
 
     protected abstract Fragment createFragment();

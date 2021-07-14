@@ -4,13 +4,13 @@ import android.content.Context;
 
 import Model.Login;
 
-public class LoginActvityPresenter {
+public class LoginActivityPresenter {
 
     private View logInView;
     private Login login;
     private Context context;
 
-    public LoginActvityPresenter(View logInView, Context context) {
+    public LoginActivityPresenter(View logInView, Context context) {
         this.logInView = logInView;
         this.login = new Login(context);
         this.context = context;
