@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment implements LoginActivityPresenter.Vi
                 } else {
 //                    isValid = loginActvityPresenter.validate(userInputUserName, userInputPassword);
 //                    System.out.println(isValid);
-                    if (!(loginActvityPresenter.validateUser(mUsernameField.getText().toString(), mPasswordField.getText().toString()))) {
+                    if (!(loginActvityPresenter.checkCredentials(mUsernameField.getText().toString(), mPasswordField.getText().toString()))) {
                         Toast.makeText(getContext(), "Incorrect credentials.", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "Login successful!", Toast.LENGTH_SHORT).show();

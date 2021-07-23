@@ -52,6 +52,17 @@ public class SignUpFragment extends Fragment implements SignUpActivityPresenter.
                     userConfirmPasswordEditText.getText().toString())) {
                 Toast.makeText(getContext(), "Invalid input.", Toast.LENGTH_SHORT).show();
             }
+            // check if userName already exists in the database
+            else if(signUpActivityPresenter.checkUserName(userNameEditText.getText().toString())){
+                Toast.makeText(getContext(), "Username already exists.", Toast.LENGTH_SHORT).show();
+            }
+            // check if email entry already exists in the database
+            else if(signUpActivityPresenter.checkEmail(userEmailEditText.getText().toString())){
+                Toast.makeText(getContext(), "This email is already associated with an account.", Toast.LENGTH_SHORT).show();
+            }
+            else if(!signUpActivityPresenter.checkPassword(userPasswordEditText.getText().toString(), userConfirmPasswordEditText.getText().toString())){
+                Toast.makeText(getContext(), "Password is not the same.", Toast.LENGTH_SHORT).show();
+            }
             else {
                 signUpActivityPresenter.insertUser(new User(userNameEditText.getText().toString(),
                         userNameEditText.getText().toString(), userLastNameEditText.getText().toString(),

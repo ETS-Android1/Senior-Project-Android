@@ -1,6 +1,7 @@
 package Model;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.provider.ContactsContract;
@@ -49,12 +50,21 @@ public class Login {
     }
 
 
+
     // returns true if the there is a matching username and password
-    public boolean validate(String username, String password) {
-        if (username.equals(this.getUsername()) && password.equals(this.getPassword())) {
-            return true;
+    public boolean checkCredentials(){
+        String[] arguments = new String[]{mUsername};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT password FROM UserAccounts WHERE username LIKE ?", arguments);
+        if (cursor.moveToFirst()) {     //cursor needs moveToFirst in order to for getString to work...
+            String cursorValue = cursor.getString(cursor.getColumnIndex("password"));
+            System.out.println(cursorValue);
+            if (cursorValue.equals(getPassword())){
+                return true;
+            }
         }
+        cursor.close();
         return false;
     }
+
 
 }
