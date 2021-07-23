@@ -1,6 +1,7 @@
 package Model.database;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import Model.User;
@@ -13,7 +14,7 @@ public class BostonFitnessSQLiteDatabase {
         this.sqLiteDatabase = sqLiteDatabase;
     }
 
-    private static ContentValues getContentValues(User user) {
+    private static ContentValues putContentValues(User user) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(BostonFitnessDBSchema.AccountsTable.Columns.UUID, user.getUserID().toString());
         contentValues.put(BostonFitnessDBSchema.AccountsTable.Columns.USERNAME, user.getUserName());
@@ -24,8 +25,9 @@ public class BostonFitnessSQLiteDatabase {
         return contentValues;
     }
 
+
     public void insertUser(User user){
-        ContentValues contentValues = getContentValues(user);
+        ContentValues contentValues = putContentValues(user);
         sqLiteDatabase.insert(BostonFitnessDBSchema.AccountsTable.NAME, null, contentValues);
     }
 }

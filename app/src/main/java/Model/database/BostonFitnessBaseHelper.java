@@ -12,6 +12,7 @@ public class BostonFitnessBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     private static final String DATABASE_NAME = "bostonFitnessBase.db-journal";
 
+
     public BostonFitnessBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
