@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.seniorproject.R;
+import com.example.seniorproject.Views.Activity.SignUpActivity;
 
 import Model.User;
 import Presenters.SignUpActivityPresenter;
@@ -26,11 +27,11 @@ public class SignUpFragment extends Fragment implements SignUpActivityPresenter.
     private Button signUpButton;
     private SignUpActivityPresenter signUpActivityPresenter;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.signUpActivityPresenter = new SignUpActivityPresenter(this, getActivity().getBaseContext());
-
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,29 +48,35 @@ public class SignUpFragment extends Fragment implements SignUpActivityPresenter.
 
         signUpButton.setOnClickListener(e -> {
             if (signUpActivityPresenter.isFieldsEmpty(userNameEditText.getText().toString(),
-                    userNameEditText.getText().toString(), userLastNameEditText.getText().toString(),
+                    userFirstNameEditText.getText().toString(), userLastNameEditText.getText().toString(),
                     userEmailEditText.getText().toString(), userPasswordEditText.getText().toString(),
                     userConfirmPasswordEditText.getText().toString())) {
-                Toast.makeText(getContext(), "Invalid input.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Invalid input.", Toast.LENGTH_SHORT).show();
             }
             // check if userName already exists in the database
-            else if(signUpActivityPresenter.checkUserName(userNameEditText.getText().toString())){
+            else if(signUpActivityPresenter.checkIfUserExists(userNameEditText.getText().toString())){
                 Toast.makeText(getContext(), "Username already exists.", Toast.LENGTH_SHORT).show();
             }
             // check if email entry already exists in the database
-            else if(signUpActivityPresenter.checkEmail(userEmailEditText.getText().toString())){
+            else if(signUpActivityPresenter.checkIfUserEmailExists(userEmailEditText.getText().toString())){
                 Toast.makeText(getContext(), "This email is already associated with an account.", Toast.LENGTH_SHORT).show();
             }
-            else if(!signUpActivityPresenter.checkPassword(userPasswordEditText.getText().toString(), userConfirmPasswordEditText.getText().toString())){
+            else if(!signUpActivityPresenter.verifyUserPasswordMatch(userPasswordEditText.getText().toString(), userConfirmPasswordEditText.getText().toString())){
                 Toast.makeText(getContext(), "Password is not the same.", Toast.LENGTH_SHORT).show();
             }
             else {
+
                 signUpActivityPresenter.insertUser(new User(userNameEditText.getText().toString(),
-                        userNameEditText.getText().toString(), userLastNameEditText.getText().toString(),
+                        userFirstNameEditText.getText().toString(), userLastNameEditText.getText().toString(),
                         userEmailEditText.getText().toString(), userPasswordEditText.getText().toString(),
                         userConfirmPasswordEditText.getText().toString()));
-                Toast.makeText(getContext(), "User Inserted", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new StartingFragment(), StartingFragment.STARTING_FRAGMENT_TAG)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

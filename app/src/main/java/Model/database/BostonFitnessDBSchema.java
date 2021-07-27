@@ -5,7 +5,7 @@ public class BostonFitnessDBSchema {
 
     public static class AccountsTable {
 
-        public static final String NAME = "UserAccounts";
+        public static final String USER_ACCOUNTS_TABLE_NAME = "UserAccounts";
 
         public static class Columns {
             public static final String UUID = "uuid";

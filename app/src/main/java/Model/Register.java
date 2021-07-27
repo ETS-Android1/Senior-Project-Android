@@ -51,6 +51,10 @@ public class Register {
         return false;
     }
 
+    public boolean checkIfPasswordsMatch(String userPassword, String userConfirmedPassword){
+        return userPassword.equals(userConfirmedPassword);
+    }
+
 
     // returns true if the there is a matching username and password
     /**

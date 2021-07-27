@@ -1,9 +1,6 @@
 package Model;
 
-public class Authentication {
-    User user;
+public interface Authentication {
 
-    public Authentication(User user) {
-        this.user = user;
-    }
+    public void authenticateUser(String username);
 }

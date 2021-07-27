@@ -20,7 +20,7 @@ public class StartingFragment extends Fragment {
     private ImageView homePage;
     private MaterialButton signUpButton;
     private MaterialButton logInButton;
-    private static String STARTING_FRAGMENT_TAG = "Starting Fragment";
+    public static String STARTING_FRAGMENT_TAG = "Starting Fragment";
 
 
     //Base Constructor

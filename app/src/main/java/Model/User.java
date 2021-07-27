@@ -4,8 +4,6 @@ import java.util.UUID;
 
 public class User {
 
-
-
     private UUID userID;
     private String userName;
     private String firstName;
@@ -14,6 +12,15 @@ public class User {
     private String password;
     private String confirmPassword;
 
+
+    public User(String userName, String firstName, String lastName, String email, String password) {
+        this.userID = UUID.randomUUID();
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String userName, String firstName, String lastName, String email, String password, String confirmPassword) {
         this.userID = UUID.randomUUID();

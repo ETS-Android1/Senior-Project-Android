@@ -1,8 +1,6 @@
 package com.example.seniorproject.Views.Fragment;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +21,7 @@ public class LoginFragment extends Fragment implements LoginActivityPresenter.Vi
     private EditText mUsernameField;
     private EditText mPasswordField;
     private Button mLoginButton;
-//    private Button mRegisterButton;
+    //    private Button mRegisterButton;
 //    private String exampleUsername = "Admin";
 //    private String examplePassword = "password";
 //    private boolean isValid = false;
@@ -48,42 +46,21 @@ public class LoginFragment extends Fragment implements LoginActivityPresenter.Vi
         mPasswordField = (EditText) v.findViewById(R.id.editTextPassword);
 
         mLoginButton = (Button) v.findViewById(R.id.login_button2);
-        mLoginButton.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (loginActvityPresenter.isUserNameOrPassWordEmpty(mUsernameField.getText().toString(), mPasswordField.getText().toString())) {
-                    Toast.makeText(getContext(), "Invalid input.", Toast.LENGTH_SHORT).show();
-                } else {
-//                    isValid = loginActvityPresenter.validate(userInputUserName, userInputPassword);
-//                    System.out.println(isValid);
-                    if (!(loginActvityPresenter.checkCredentials(mUsernameField.getText().toString(), mPasswordField.getText().toString()))) {
-                        Toast.makeText(getContext(), "Incorrect credentials.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(), "Login successful!", Toast.LENGTH_SHORT).show();
-
-
-                        getActivity()
-                                .getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment_container, new HomePageFragment(), "TAG")
-                                .addToBackStack(null)
-                                .commit();
-
-                        /**
-                         // Add code to go to the new activity. Homepage (logged in)
-                         Intent intent = new Intent(getContext(), StartingActivity.class); //intent(source,activity)
-                         // now that you have an intent, start the activity
-                         startActivity(intent);
-                         **/
-
-                    }
+        mLoginButton.setOnClickListener((e -> {
+                /**  Validate **/
+                if(loginActvityPresenter.checkLogin(mUsernameField.getText().toString().trim(), mPasswordField.getText().toString().trim())){
+                    Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                    getActivity()
+                            .getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new HomePageFragment(), HomePageFragment.HOMEPAGE_FRAGMENT_ACTIVITY)
+                            .addToBackStack(null)
+                            .commit();
                 }
 
-            }
         }));
 
         return v;
-    }
 
+    }
 }
