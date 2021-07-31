@@ -60,7 +60,7 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback, Na
 
     public static String HOMEPAGE_FRAGMENT_ACTIVITY = "Home Page Activity";
     private GoogleMap googleMap;
-    MapView mapView;
+    private MapView mapView;
     private PlacesClient placesClient;
     private boolean locationPermissionsGranted;
     private Location lastKnownLocation;

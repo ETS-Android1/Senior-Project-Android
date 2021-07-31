@@ -58,9 +58,6 @@ public class StartingFragment extends Fragment {
                     .replace(R.id.fragment_container, new SignUpFragment(), SignUpActivity.SIGN_UP_FRAGMENT_ACTIVITY)
                     .addToBackStack(null)
                     .commit();
-//            Intent intent = new Intent(getContext(), HomePageActivity.class);
-//            intent.putExtra(STARTING_FRAGMENT_TAG, STARTING_FRAGMENT_TAG );
-//            startActivity(intent);
         });
 
         return view;
