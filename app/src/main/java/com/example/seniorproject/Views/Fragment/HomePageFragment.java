@@ -8,17 +8,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavHostController;
 
 import com.example.seniorproject.R;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -41,15 +46,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.concurrent.Executor;
 
 
-public class HomePageFragment extends Fragment implements OnMapReadyCallback {
+public class HomePageFragment extends Fragment implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
 
 
     private DrawerLayout drawerLayout;
     private MaterialToolbar materialToolbar;
+    private NavigationView navigationView;
 
     public static String HOMEPAGE_FRAGMENT_ACTIVITY = "Home Page Activity";
     private GoogleMap googleMap;
@@ -76,6 +83,7 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback {
 
         // Construct a FusedLocationProviderClient
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+
     }
 
     @Override
@@ -84,6 +92,9 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback {
         View view = inflater.inflate(R.layout.fragment_homepage, container, false);
         drawerLayout = (DrawerLayout) view.findViewById(R.id.drawerLayout);
         materialToolbar = (MaterialToolbar) view.findViewById(R.id.topAppBar);
+
+        navigationView = (NavigationView) view.findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         materialToolbar.setNavigationOnClickListener(e -> {
             drawerLayout.openDrawer(Gravity.LEFT);
@@ -103,18 +114,8 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
-
-
                 getLocationPermission();
                 getDeviceLocation();
-                // For dropping a marker at a point on the Map
-//                LatLng sydney = new LatLng(-34, 151);
-//                LatLng sydney = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
-//                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
-//
-//                // For zooming automatically to the location of the marker
-//                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(12).build();
-//                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
 
@@ -193,7 +194,7 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback {
 //                // For zooming automatically to the location of the marker
 //                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(12).build();
 //                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                                LatLng currentLocation = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
+                                LatLng currentLocation = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
                                 googleMap.addMarker(new MarkerOptions().position(currentLocation).title("Marker Title").snippet("Marker Description"));
                                 CameraPosition cameraPosition = new CameraPosition.Builder().target(currentLocation).zoom(12).build();
                                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
@@ -229,4 +230,26 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback {
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
     }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.nav_profile: {
+                Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new HomePageFragment(), HomePageFragment.HOMEPAGE_FRAGMENT_ACTIVITY)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
+
+            }
+        }
+        return true;
+    }
+
 }
+
+
