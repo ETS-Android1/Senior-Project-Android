@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment implements LoginActivityPresenter.Vi
         mLoginButton = (Button) v.findViewById(R.id.login_button2);
         mLoginButton.setOnClickListener((e -> {
                 /**  Validate **/
-                if(loginActvityPresenter.checkLogin(mUsernameField.getText().toString().trim(), mPasswordField.getText().toString().trim())){
+//                if(loginActvityPresenter.checkLogin(mUsernameField.getText().toString().trim(), mPasswordField.getText().toString().trim())){
                     Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     getActivity()
                             .getSupportFragmentManager()
@@ -56,7 +56,7 @@ public class LoginFragment extends Fragment implements LoginActivityPresenter.Vi
                             .replace(R.id.fragment_container, new HomePageFragment(), HomePageFragment.HOMEPAGE_FRAGMENT_ACTIVITY)
                             .addToBackStack(null)
                             .commit();
-                }
+//                }
 
         }));
 

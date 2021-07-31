@@ -59,6 +59,8 @@
         app:headerLayout="@layout/header_navigation_drawer"
         app:menu="@menu/drawer_menu_burger" />
 
+
+
 </androidx.drawerlayout.widget.DrawerLayout>
 
 
