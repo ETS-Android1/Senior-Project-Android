@@ -1,5 +1,6 @@
 package com.example.seniorproject.Views.Fragment;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import Model.User;
 import Presenters.ProfileActivityPresenter;
 
 public class ProfileFragment extends Fragment implements ProfileActivityPresenter.View {
+    private ImageView profileArtBoardTemp;
     private EditText userNameEditText;
     private EditText userFirstNameEditText;
     private EditText userLastNameEditText;
@@ -37,16 +39,17 @@ public class ProfileFragment extends Fragment implements ProfileActivityPresente
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         /** Construct Widgets **/
-        userNameEditText = (EditText) view.findViewById(R.id.editTextUsername);
-        userFirstNameEditText = (EditText) view.findViewById(R.id.editTextFirstName);
-        userLastNameEditText = (EditText) view.findViewById(R.id.editTextLastName);
-        userEmailEditText = (EditText) view.findViewById(R.id.editTextEmail);
-        userPasswordEditText = (EditText) view.findViewById(R.id.editTextPassword);
-        userConfirmPasswordEditText = (EditText) view.findViewById(R.id.editTextConfirmPassword);
-        signUpButton = (Button) view.findViewById(R.id.signup_button);
-
-        signUpButton.setOnClickListener(e -> {
-        });
+//        userNameEditText = (EditText) view.findViewById(R.id.editTextUsername);
+//        userFirstNameEditText = (EditText) view.findViewById(R.id.editTextFirstName);
+//        userLastNameEditText = (EditText) view.findViewById(R.id.editTextLastName);
+//        userEmailEditText = (EditText) view.findViewById(R.id.editTextEmail);
+//        userPasswordEditText = (EditText) view.findViewById(R.id.editTextPassword);
+//        userConfirmPasswordEditText = (EditText) view.findViewById(R.id.editTextConfirmPassword);
+//        signUpButton = (Button) view.findViewById(R.id.signup_button);
+//
+        profileArtBoardTemp = (ImageView) view.findViewById(R.id.profileArtBoardImageview);
+//        signUpButton.setOnClickListener(e -> {
+//        });
 
 
         return view;

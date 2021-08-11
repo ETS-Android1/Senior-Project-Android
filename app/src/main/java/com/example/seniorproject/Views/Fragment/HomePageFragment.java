@@ -240,7 +240,7 @@ public class HomePageFragment extends Fragment implements OnMapReadyCallback, Na
                 getActivity()
                         .getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.fragment_container, new HomePageFragment(), HomePageFragment.HOMEPAGE_FRAGMENT_ACTIVITY)
+                        .replace(R.id.fragment_container, new ProfileFragment(), HomePageFragment.HOMEPAGE_FRAGMENT_ACTIVITY)
                         .addToBackStack(null)
                         .commit();
                 return true;
