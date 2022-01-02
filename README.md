@@ -1,5 +1,5 @@
 # Senior Project
-Note: This was a senior project for school, but I am planning to add onto it as a personal/open source project.
+Note: Senior project. Structured around MVP.
 
 A Fitness Android Application that is aimed to help bring the community of runners in Boston together. 
 
